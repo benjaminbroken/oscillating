@@ -158,8 +158,8 @@ $(document).ready(function () {
         }
 
         for (var j = 0; j <= T; j++) {
-            for (var i1 = 1; i1 < N-1; i1++) {
-                for (var i2 = 1; i2 < N-1; i2++) {
+            for (var i1 = 1; i1 < N; i1++) {
+                for (var i2 = 1; i2 < N; i2++) {
                     u[j][i1][i2] = 0.5*(y[j][i1][i2] + v[j][i1][i2]);
                 }
             }
