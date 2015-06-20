@@ -1,0 +1,56 @@
+body {
+    background-color: lightcyan;
+}
+
+body h1 {
+    position: inherit;
+    text-align: center;
+    font: 16pt sans-serif;
+}
+
+.input-data {
+    border: 2pt outset yellowgreen;
+    margin-left: 5pt;
+    margin-right: 5pt;
+    margin-top: 5pt;
+}
+
+.input-data h2 {
+    position: relative;
+    font: bold 12pt sans-serif;
+    text-align: center;
+}
+
+.input-data p {
+    position: relative;
+    text-align: center;
+}
+
+.input-data  .chooser-title {
+    position: relative;
+    margin-top: 10pt;
+}
+
+
+.input-data  li {
+    position: relative;
+    display: inline-block;
+    width: 200pt;
+    padding-left: 30pt;
+    padding-bottom: 20pt;
+}
+
+.input-data .double-chooser #speed {
+    margin-left: 20pt;
+}
+
+.input-data .btn {
+    position: relative;
+    margin: 0 auto;
+    display: block;
+}
+
+.input-data .chooser-title {
+    padding-left: 20pt;
+}
+

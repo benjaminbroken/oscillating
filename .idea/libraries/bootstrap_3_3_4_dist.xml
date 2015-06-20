@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="bootstrap-3.3.4-dist" type="javaScript">
+    <properties>
+      <sourceFilesUrls>
+        <item url="file://$APPLICATION_HOME_DIR$/plugins/bootstrap-3.3.4-dist" />
+      </sourceFilesUrls>
+    </properties>
+    <CLASSES>
+      <root url="file://$APPLICATION_HOME_DIR$/plugins/bootstrap-3.3.4-dist" />
+    </CLASSES>
+    <SOURCES />
+  </library>
+</component>
