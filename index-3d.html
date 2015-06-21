@@ -6,6 +6,7 @@
     <link rel="stylesheet" href = "css/style.css" >
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <script type ="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
     <script type="text/javascript" src="js/vector.js"></script>
     <script type="text/javascript" src="js/render.js"></script>
@@ -13,61 +14,66 @@
 
 </head>
 <body>
-<h1>Mathematical Modelling of Oscillating Processes</h1>
-<ul class="nav nav-tabs">
-    <li role="presentation" ><a href="index.html">2D</a></li>
-    <li role="presentation" class="active"><a href="#">3D</a></li>
-</ul>
+<div class="head"><h1>Mathematical Modelling of Oscillating Processes</h1></div>
+<div class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Number of dimentions:</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li  ><a href="index.html">One (2D graphics) </a></li>
+            <li class="active"><a href="#">Two (3D graphics)</a></li>
+        </ul>
+    </div>
+</div>
+
 
 <div class="row">
     <div class="col-md-6">
         <form class="input-data">
             <h2>Differential equation of the membrane oscillation
             </h2>
-            <p>∂<sup>2</sup>u/∂t<sup>2</sup>=a<sup>2</sup>*(∂<sup>2</sup>u/∂x<sup>2</sup>+∂<sup>2</sup>u/∂y<sup>2</sup>)+F(x,y,t)</p>
+            <p class="description">∂<sup>2</sup>u/∂t<sup>2</sup>=a<sup>2</sup>*(∂<sup>2</sup>u/∂x<sup>2</sup>+∂<sup>2</sup>u/∂y<sup>2</sup>)+F(x,y,t)<br>a<sup>2</sup>=1, T=10sec, 0&le;x&le;1, 0&le;y&le;1 </p>
             <label class = "chooser-title">Choose the task:
             </label>
             <fieldset id = "task">
-                <div class = "col-md-2">
                     <ul>
                         <li>
                             <input type = "radio" id="task1" name="taskType"> <label>Plane Surface:</label> <br>
-                            F(x,y,t)=0, <br> u(x,y,0)=0, u<sub>t</sub>(x,y,0)=0, <br> u(0,y,t)=0, u(1,y,t)=0, <br> u(x,0,t)=0, u(x,1,t)=0;
+                            <p>F(x,y,t)=0, <br> u(x,y,0)=0, u<sub>t</sub>(x,y,0)=0, <br> u(0,y,t)=0, u(1,y,t)=0, <br> u(x,0,t)=0, u(x,1,t)=0;</p>
                             </input>
+                        </li>
+                        <li>
+                        <input type = "radio" id="task4" name="taskType" ><label>Harmonic oscillating:</label><br>
+                        <p>F(x,y,t)=0, <br> u(x,y,0)=5sin(x)sin(2y), u<sub>t</sub>(x,y,0)=5sin(2x)sin(4y), <br> u(0,y,t)=0, u(1,y,t)=2.5cos(&radic;5t)sin(2y)+10sin(5t)sin(4y), <br> u(x,0,t)=0, u(x,1,t)=2.7cos(&radic;5t)sin(x)-0.75sin(5t)sin(3x);</p>
+                        </input>
                         </li>
                         <li>
                             <input type = "radio" id="task2" name="taskType" > <label>Jumping Surface:</label><br>
-                            F(x,y,t)=-600sin(40t)(800x<sup>2</sup>(1-x)<sup>2</sup>y<sup>2</sup>(1-y)<sup>2</sup>+(6x<sup>2</sup>-6x+1)y<sup>2</sup>(1-y)<sup>2</sup>+(6y<sup>2</sup>-y+1)x<sup>2</sup>(1-x)<sup>2</sup>),
-                            <br> u(x,y,0)=0,  <br>u<sub>t</sub>(x,y,0)=12000x<sup>2</sup>(1-x)<sup>2</sup>y<sup>2</sup>(1-y)<sup>2</sup><br> u(x,y,0)=0, u<sub>t</sub>(x,y,0)=0, <br> u(0,y,t)=0, u(1,y,t)=0, <br> u(x,0,t)=0, u(x,1,t)=0;,
-                            </input>
-                        </li>
-                        </ul>
-                    </div>
-                <div class = "col-md-2"></div>
-                <div class = "col-md-2">
-                        <ul>
-                        <li>
-                            <input type = "radio" id="task4" name="taskType" ><label>Harmonic oscillating:</label><br>
-                            F(x,y,t)=0, <br> u(x,y,0)=5sin(x)sin(2y), u<sub>t</sub>(x,y,0)=5sin(2x)sin(4y), <br> u(0,y,t)=0, u(1,y,t)=2.5cos(&radic;5t)sin(2y)+10sin(5t)sin(4y), <br> u(x,0,t)=0, u(x,1,t)=2.7cos(&radic;5t)sin(x)-0.75sin(5t)sin(3x);
+                            <p>F(x,y,t)=-600sin(40t)(800x<sup>2</sup>(1-x)<sup>2</sup>y<sup>2</sup>(1-y)<sup>2</sup>+(6x<sup>2</sup>-6x+1)y<sup>2</sup>(1-y)<sup>2</sup>+(6y<sup>2</sup>-y+1)x<sup>2</sup>(1-x)<sup>2</sup>),
+                            <br> u(x,y,0)=0,  <br>u<sub>t</sub>(x,y,0)=12000x<sup>2</sup>(1-x)<sup>2</sup>y<sup>2</sup>(1-y)<sup>2</sup><br> u(x,y,0)=0, u<sub>t</sub>(x,y,0)=0, <br> u(0,y,t)=0, u(1,y,t)=0, <br> u(x,0,t)=0, u(x,1,t)=0;</p>
                             </input>
                         </li>
                         <li>
-                            <input type = "radio" id="task3" name="taskType"></input><label>Flying paper:</label><br>
-                            F(x,y,t)=-t<sup>2</sup>(e<sup>x</sup>-cos(y))+ (2-(t-t<sup>2</sup>)<sup>2</sup>)(e<sup>x</sup>+cos(y)), <br> u(x,y,0)=0, u<sub>t</sub>(x,y,0)=0, <br> u(0,y,t)=(1+cos(y))t<sup>2</sup>, u(1,y,t)=(e<sup>x</sup>+cos(y))t<sup>2</sup>, <br> u(x,0,t)=(1+e<sup>x</sup>)t<sup>2</sup>, u(x,1,t)=(0.84+e<sup>x</sup>)t<sup>2</sup>;
-
+                            <input type = "radio" id="task3" name="taskType"><label>Flying paper:</label><br>
+                            <p>F(x,y,t)=-t<sup>2</sup>(e<sup>x</sup>-cos(y))+ (2-(t-t<sup>2</sup>)<sup>2</sup>)(e<sup>x</sup>+cos(y)), <br> u(x,y,0)=0, u<sub>t</sub>(x,y,0)=0, <br> u(0,y,t)=(1+cos(y))t<sup>2</sup>, u(1,y,t)=(e<sup>x</sup>+cos(y))t<sup>2</sup>, <br> u(x,0,t)=(1+e<sup>x</sup>)t<sup>2</sup>, u(x,1,t)=(0.84+e<sup>x</sup>)t<sup>2</sup>;</p>
+                            </input>
                         </li>
                     </ul>
-                </div>
             </fieldset>
-
             <input type="button" class = "btn" name="submit" id="submit" value="Submit"> &nbsp; <input type="button" class ="btn" name="reload" id="reload" onclick="location.reload()" value="Reload tab"> <br>
-
         </form>
     </div>
     <div class="col-md-6">
         <canvas id="mycanvas" width="600" height="600"></canvas>
     </div>
 </div>
-
+<footer><p>Developed by Kateryna Oliinyk<br>Kyiv National University<br>2015</p></footer>
 </body>
 </html>
