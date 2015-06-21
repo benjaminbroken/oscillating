@@ -10,6 +10,7 @@
     <script type="text/javascript" src="js/vector.js"></script>
     <script type="text/javascript" src="js/render.js"></script>
     <script type="text/javascript" src="js/membrane.js"></script>
+
 </head>
 <body>
 <h1>Mathematical Modelling of Oscillating Processes</h1>
@@ -20,47 +21,48 @@
 
 <div class="row">
     <div class="col-md-6">
-       <form class="input-data">
-           <h2>Differential equation of the membrane oscillation
-           </h2>
-           <p>∂<sup>2</sup>u/∂t<sup>2</sup>=a<sup>2</sup>*(∂<sup>2</sup>u/∂x<sup>2</sup>+∂<sup>2</sup>u/∂y<sup>2</sup>)+F(x,y,t)</p>
+        <form class="input-data">
+            <h2>Differential equation of the membrane oscillation
+            </h2>
+            <p>∂<sup>2</sup>u/∂t<sup>2</sup>=a<sup>2</sup>*(∂<sup>2</sup>u/∂x<sup>2</sup>+∂<sup>2</sup>u/∂y<sup>2</sup>)+F(x,y,t)</p>
+            <label class = "chooser-title">Choose the task:
+            </label>
+            <fieldset id = "task">
+                <div class = "col-md-2">
+                    <ul>
+                        <li>
+                            <input type = "radio" id="task1" name="taskType"> <label>Plane Surface:</label> <br>
+                            F(x,y,t)=0, <br> u(x,y,0)=0, u<sub>t</sub>(x,y,0)=0, <br> u(0,y,t)=0, u(1,y,t)=0, <br> u(x,0,t)=0, u(x,1,t)=0;
+                            </input>
+                        </li>
+                        <li>
+                            <input type = "radio" id="task2" name="taskType" > <label>Jumping Surface:</label><br>
+                            F(x,y,t)=-600sin(40t)(800x<sup>2</sup>(1-x)<sup>2</sup>y<sup>2</sup>(1-y)<sup>2</sup>+(6x<sup>2</sup>-6x+1)y<sup>2</sup>(1-y)<sup>2</sup>+(6y<sup>2</sup>-y+1)x<sup>2</sup>(1-x)<sup>2</sup>),
+                            <br> u(x,y,0)=0,  <br>u<sub>t</sub>(x,y,0)=12000x<sup>2</sup>(1-x)<sup>2</sup>y<sup>2</sup>(1-y)<sup>2</sup><br> u(x,y,0)=0, u<sub>t</sub>(x,y,0)=0, <br> u(0,y,t)=0, u(1,y,t)=0, <br> u(x,0,t)=0, u(x,1,t)=0;,
+                            </input>
+                        </li>
+                        </ul>
+                    </div>
+                <div class = "col-md-2"></div>
+                <div class = "col-md-2">
+                        <ul>
+                        <li>
+                            <input type = "radio" id="task4" name="taskType" ><label>Harmonic oscillating:</label><br>
+                            F(x,y,t)=0, <br> u(x,y,0)=5sin(x)sin(2y), u<sub>t</sub>(x,y,0)=5sin(2x)sin(4y), <br> u(0,y,t)=0, u(1,y,t)=2.5cos(&radic;5t)sin(2y)+10sin(5t)sin(4y), <br> u(x,0,t)=0, u(x,1,t)=2.7cos(&radic;5t)sin(x)-0.75sin(5t)sin(3x);
+                            </input>
+                        </li>
+                        <li>
+                            <input type = "radio" id="task3" name="taskType"></input><label>Flying paper:</label><br>
+                            F(x,y,t)=-t<sup>2</sup>(e<sup>x</sup>-cos(y))+ (2-(t-t<sup>2</sup>)<sup>2</sup>)(e<sup>x</sup>+cos(y)), <br> u(x,y,0)=0, u<sub>t</sub>(x,y,0)=0, <br> u(0,y,t)=(1+cos(y))t<sup>2</sup>, u(1,y,t)=(e<sup>x</sup>+cos(y))t<sup>2</sup>, <br> u(x,0,t)=(1+e<sup>x</sup>)t<sup>2</sup>, u(x,1,t)=(0.84+e<sup>x</sup>)t<sup>2</sup>;
 
-           <label class = "chooser-title">Choose the task:
-           </label>
-           <fieldset id = "task">
-               <div class = "col-md-2">
-                   <ul>
-                       <li>
-                           <input type = "radio" id="task1" name="taskType">
-                           F(x,y,t)=0, <br> u(x,y,0)=0, u<sub>t</sub>(x,y,0)=0, <br> u(0,y,t)=0, u(1,y,t)=0, <br> u(x,0,t)=0, u(x,1,t)=0;
-                           </input>
-                       </li>
-                       <li>
-                           <input type = "radio" id="task2" name="taskType" >
-                           F(x,t)=0, <br> u(x,0)=sin(x), u<sub>t</sub>(x,0)=cos(x), <br> u(0,t)=sin(t), u(1,t)=sin(t+1);
-                           </input>
-                       </li>
-                   </ul>
-               </div>
-               <div class = "col-md-2"></div>
-               <div class = "col-md-2">
-                   <ul>
+                        </li>
+                    </ul>
+                </div>
+            </fieldset>
 
-                       <li>
-                           <input type = "radio" id="task4" name="taskType" >
-                           </input>
-                       </li>
-                       <li>
-                           <input type = "radio" id="task3" name="taskType" >
-                           </input>
-                       </li>
-                   </ul>
-               </div>
-           </fieldset>
+            <input type="button" class = "btn" name="submit" id="submit" value="Submit"> &nbsp; <input type="button" class ="btn" name="reload" id="reload" onclick="location.reload()" value="Reload"> <br>
 
-           <input type="button" class = "btn" name="submit" id="submit" value="Submit"> &nbsp; <input type="button" class ="btn" name="reload" id="reload" onclick="location.reload()" value="Reload"> <br>
-
-       </form>
+        </form>
     </div>
     <div class="col-md-6">
         <canvas id="mycanvas" width="600" height="600"></canvas>
