@@ -21,11 +21,11 @@ $(document).ready(function () {
                 u1 = function(x) {return 0;};
                 break;
             case 'task2':
-                f = function(x, t) {return 0;};
-                mu1 = function(t) {return Math.sin(t);};
-                mu2 = function(t) {return Math.sin(t+1);};
-                u0 = function(x) {return Math.sin(x);};
-                u1 = function(x) {return Math.cos(x);};
+                f = function(x, t) {return Math.sin(40*t)*(20-16000*(x-x*x));};
+                mu1 = function(t) {return 0;};
+                mu2 = function(t) {return 0;};
+                u0 = function(x) {return 0;};
+                u1 = function(x) {return 400*x*(1-x);};
                 break;
             case 'task3':
                 f = function(x, t) {return -22.5*Math.pow(Math.PI,2)*Math.cos(2*Math.PI*(0.5*x-2*t)+1);};
