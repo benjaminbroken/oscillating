@@ -1,9 +1,7 @@
 /**
  * Created by Капитан on 20.06.2015.
  */
-var z = [];
-var shots;
-var density;
+var z = [], shots, density;
 for (var j = 0; j <= 200; j++) {
     z[j] = [];
     for (var i = 0; i <= 15; i++){
@@ -44,6 +42,15 @@ $(document).ready(function () {
                 mu1P = function(y, t) {return (Math.exp(1) + Math.cos(y)) * t * t;};
                 mu2P = function(x, t) {return (Math.cos(1)+Math.exp(x))*t*t;};
                 break;
+            case 'task4':
+                f = function(x, y, t) {return 0;};
+                u0 = function(x, y) {return 3*Math.sin(x)*Math.sin(2*y);};
+                u1 = function(x, y) {return 5*Math.sin(3*x)*Math.sin(4*y);};
+                mu1M = function(y, t) {return 0;};
+                mu2M = function(x ,t) {return 0;};
+                mu1P = function(y, t) {return 3 * Math.cos(Math.sqrt(5) * t) * Math.sin(1) * Math.sin(2 *y) + Math.sin(5 * t) * Math.sin(3) * Math.sin(4 *y);};
+                mu2P = function(x, t) {return 3 * Math.cos(Math.sqrt(5) * t) * Math.sin(x) * Math.sin(2) + Math.sin(5 * t) * Math.sin(3 * x) * Math.sin(4 );};
+                break;
 
         }
         obj = {f: f, u0: u0, u1: u1, mu1M: mu1M, mu2M: mu2M, mu1P: mu1P, mu2P: mu2P};
@@ -80,15 +87,10 @@ $(document).ready(function () {
         }
 
         for (var i = 0; i <= N; i++){
-            v[1][i][0] = global.mu2M(i1*h, 0);
-            v[1][i][N] = global.mu2P(i1*h, 0);
-            y[1][0][i] = global.mu1M(i2*h, 0);
-            y[1][N][i] = global.mu1P(i2*h, 0);
-            u[1][i][0] = global.mu2M(i1*h, 0);
-            u[1][i][N] = global.mu2P(i1*h, 0);
-            u[1][0][i] = global.mu1M(i2*h, 0);
-            u[1][N][i] = global.mu1P(i2*h, 0);
-
+            v[1][i][0] = global.mu2M(i1*h, tau);
+            v[1][i][N] = global.mu2P(i1*h, tau);
+            y[1][0][i] = global.mu1M(i2*h, tau);
+            y[1][N][i] = global.mu1P(i2*h, tau);
         }
 
         for (var i1 = 1; i1 < N; i1++){
@@ -123,7 +125,7 @@ $(document).ready(function () {
                     ai[0] = 0;
                     bi[0] = 0;
                     ci[0] = 0;
-                    ai[1] = 1 /(d);
+                    ai[1] = 1 /(2*d);
                     bi[1] = (F1[1] - global.mu1M(i2 * h, tau * (j + 1))) / (-d);
                     ci[1] = (F2[1] - global.mu2M(i2 * h, tau * (j + 1))) / (-d);
 
@@ -137,16 +139,14 @@ $(document).ready(function () {
 
                     y[j + 1][0][i2] = global.mu1M(i2 * h, tau * (j + 1));
                     y[j + 1][N][i2] = global.mu1P(i2 * h, tau * (j + 1));
+                    y[j + 1][i2][0] = global.mu2M(i2 * h, tau * (j + 1));
+                    y[j + 1][i2][N] = global.mu2P(i2 * h, tau * (j + 1));
                     y[j + 1][N - 1][i2] = bi[N - 1];
                     v[j + 1][i2][0] = global.mu2M(i2 * h, tau * (j + 1));
                     v[j + 1][i2][N] = global.mu2P(i2 * h, tau * (j + 1));
+                    v[j + 1][0][i2] = global.mu1M(i2 * h, tau * (j + 1));
+                    v[j + 1][N][i2] = global.mu1P(i2 * h, tau * (j + 1));
                     v[j + 1][i2][N - 1] = ci[N - 1];
-                    u[j + 1][0][i2] = global.mu1M(i2 * h, tau * (j + 1));
-                    u[j + 1][N][i2] = global.mu1P(i2 * h, tau * (j + 1));
-                    u[j + 1][i2][0] = global.mu2M(i2 * h, tau * (j + 1));
-                    u[j + 1][i2][N] = global.mu2P(i2 * h, tau * (j + 1));
-                    u[j + 1][N - 1][i2] = bi[N - 1];
-                    u[j + 1][i2][N - 1] = ci[N - 1];
 
 
                     for (var i = N - 2; i > 0; i--) {
@@ -158,9 +158,13 @@ $(document).ready(function () {
         }
 
         for (var j = 0; j <= T; j++) {
-            for (var i1 = 1; i1 < N; i1++) {
-                for (var i2 = 1; i2 < N; i2++) {
+            for (var i1 = 0; i1 <= N; i1++) {
+                for (var i2 = 0; i2 <= N; i2++) {
                     u[j][i1][i2] = 0.5*(y[j][i1][i2] + v[j][i1][i2]);
+                    u[j][0][i2] = global.mu1M(i2 * h, tau * j);
+                    u[j][N][i2] = global.mu1P(i2 * h, tau * j);
+                    u[j][i2][0] = global.mu2M(i2 * h, tau * j);
+                    u[j][i2][N] = global.mu2P(i2 * h, tau * j);
                 }
             }
         }
