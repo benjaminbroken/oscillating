@@ -30,6 +30,7 @@ $(function(){
 });
 
 function start() {
+    step = 0;
     if (window.timer) {
         clearInterval(window.timer);
     }
