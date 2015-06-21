@@ -59,7 +59,7 @@ function draw_line(n) {
     }
     draw_canvas();
 
-    context.strokeStyle = '#0000FF';
+    context.strokeStyle = '#00b300';
     context.beginPath();
     coo = mapping( [ 0, lines_arr[n][0] ] );
     context.moveTo(coo.x, coo.y);
