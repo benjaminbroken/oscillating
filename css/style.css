@@ -1,11 +1,19 @@
-body {
-    background-color: lightcyan;
+@import url(http://fonts.googleapis.com/css?family=Slabo+27px);
+@import url(http://fonts.googleapis.com/css?family=Droid+Sans);
+
+body .head {
+    background-color: greenyellow;
+    padding: 15pt ;
 }
 
 body h1 {
     position: inherit;
     text-align: center;
-    font: 16pt sans-serif;
+    font-family: 'Slabo 27px', serif;
+}
+
+.navbar {
+    font-family: 'Droid Sans', sans-serif;
 }
 
 .input-data {
@@ -17,28 +25,41 @@ body h1 {
 
 .input-data h2 {
     position: relative;
-    font: bold 12pt sans-serif;
+    font-family: 'Droid Sans', sans-serif;
+    font-size: 12pt;
+    font-weight: bold;
     text-align: center;
 }
 
-.input-data p {
+.input-data .description {
     position: relative;
     text-align: center;
 }
 
-.input-data  .chooser-title {
+.input-data label {
+    font-family: 'Droid Sans', sans-serif;
+}
+
+.input-data .chooser-title {
     position: relative;
+    text-align: center;
     margin-top: 10pt;
 }
 
+.input-data ul{
+    padding-bottom: 20pt;
+}
 
 .input-data  li {
     position: relative;
     display: inline-block;
     width: 200pt;
-    padding-left: 30pt;
-    padding-bottom: 20pt;
+    padding-bottom: 10pt;
+    padding-left: 10pt;
+    padding-right: 20pt;
+
 }
+
 
 .input-data .double-chooser #speed {
     margin-left: 20pt;
@@ -54,3 +75,12 @@ body h1 {
     padding-left: 20pt;
 }
 
+body footer {
+    background-color: greenyellow;
+    padding: 5pt;
+    margin-top: 10pt;
+    text-align: center;
+    font-weight: bold;
+    font-family: 'Slabo 27px', serif;
+
+}
