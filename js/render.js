@@ -78,7 +78,7 @@ function draw_canvas() {
     context.fillRect(0, 0, $(canvas).width(), $(canvas).height());
     context.strokeStyle = '#909090';
     context.beginPath();
-    /* for (var i=0; i<=10; i++) {
+     for (var i=0; i<=10; i++) {
      context.moveTo(i*$(canvas).width()/10, 0);
      context.lineTo(i*$(canvas).width()/10, $(canvas).height());
      //		context.strokeText(i, i*$(canvas).width()/10 + 4, $(canvas).height() - 4);
@@ -86,7 +86,7 @@ function draw_canvas() {
      for (var i=0; i<=10; i++) {
      context.moveTo(0, i*$(canvas).height()/10);
      context.lineTo($(canvas).width(), i*$(canvas).height()/10);
-     }*/
+     }
     context.stroke();
     context.beginPath();
     context.strokeStyle = '#009030';
