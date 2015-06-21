@@ -7,65 +7,70 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap-theme.min.css">
     <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+    <script type ="text/javascript" src="js/bootstrap.min.js"></script>
     <script type ="text/javascript" src="js/app.js"></script>
     <script type ="text/javascript" src="js/draw.js"></script>
 <body>
-<h1>Mathematical Modelling of Oscillating Processes</h1>
-<ul class="nav nav-tabs">
-    <li role="presentation" class="active"><a href="#">2D</a></li>
-    <li role="presentation"><a href="index-3d.html">3D</a></li>
-</ul>
+<div class="head"><h1>Mathematical Modelling of Oscillating Processes</h1></div>
+<div class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Number of dimentions:</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="#">One (2D graphics) </a></li>
+            <li ><a href="index-3d.html">Two (3D graphics)</a></li>
+        </ul>
+    </div>
+</div>
     <div class = "row">
         <div class = "col-md-6">
-
             <form class = "input-data">
                 <h2>Differential equation of the string oscillation
                 </h2>
-                <p>∂<sup>2</sup>u/∂t<sup>2</sup>=a<sup>2</sup>*∂<sup>2</sup>u/∂x<sup>2</sup>+F(x,t)<br>a<sup>2</sup>=1, T=15sec, 0&le;x&le;1</p>
+                <p class="description">∂<sup>2</sup>u/∂t<sup>2</sup>=a<sup>2</sup>*∂<sup>2</sup>u/∂x<sup>2</sup>+F(x,t)<br>a<sup>2</sup>=1, T=10sec, 0&le;x&le;1</p>
                 <label class = "chooser-title">Choose the task:
                 </label>
                 <fieldset id = "task">
-                    <div class = "col-md-2">
                     <ul>
                         <li>
                             <input type = "radio" id="task1" name="taskType" checked="checked"><label>Fixed string</label><br>
-                            F(x,t)=0, <br> u(x,0)=0, u<sub>t</sub>(x,0)=0, <br> u(0,t)=0, u(1,t)=0;
+                            <p>F(x,t)=0, <br> u(x,0)=0, u<sub>t</sub>(x,0)=0, <br> u(0,t)=0, u(1,t)=0;</p>
                             </input>
                         </li>
                         <li>
                             <input type = "radio" id="task3" name="taskType" ><label>Harmonic wave</label><br>
-                            F(x,t)=-22.5π<sup>2</sup>cos(2π(0.5x-2t)), <br> u(x,0)=1.5cos(πx+1), u<sub>t</sub>(x,0)=6πsin(πx+1), <br> u(0,t)=1.5cos(1-4πt), u(1,t)=-1.5cos(1-4πt);
+                            <p>F(x,t)=-22.5π<sup>2</sup>cos(2π(0.5x-2t)), <br> u(x,0)=1.5cos(πx+1), u<sub>t</sub>(x,0)=6πsin(πx+1), <br> u(0,t)=1.5cos(1-4πt), u(1,t)=-1.5cos(1-4πt);</p>
                             </input>
                         </li>
-                    </ul>
-                    </div>
-                    <div class = "col-md-2"></div>
-                    <div class = "col-md-2">
-                    <ul>
                         <li>
                             <input type = "radio" id="task4" name="taskType" ><label>Decreasing wave length</label><br>
-                            F(x,t)=900(t<sup>2</sup>-x<sup>2</sup>)sin(π/16+30xt), <br> u(x,0)=sin(π/16), u<sub>t</sub>(x,0)=30x*cos(π/16), <br> u(0,t)=sin(π/16), u(1,t)=sin(π/16+30t);
+                            <p>F(x,t)=900(t<sup>2</sup>-x<sup>2</sup>)sin(π/16+30xt), <br> u(x,0)=sin(π/16), u<sub>t</sub>(x,0)=30x*cos(π/16), <br> u(0,t)=sin(π/16), u(1,t)=sin(π/16+30t);</p>
                             </input>
                         </li>
                         <li>
                             <input type = "radio" id="task2" name="taskType" ><label>Jumping string</label><br>
-                            F(x,t)=sin(40t)(20-16000x(1-x)), <br> u(x,0)=0, u<sub>t</sub>(x,0)=400x(1-x), <br> u(0,t)=0, u(1,t)=0;
+                            <p>F(x,t)=sin(40t)(20-16000x(1-x)), <br> u(x,0)=0, u<sub>t</sub>(x,0)=400x(1-x), <br> u(0,t)=0, u(1,t)=0;</p>
                             </input>
                         </li>
                     </ul>
-                    </div>
                 </fieldset>
 
                 <input type="button" class = "btn"  name="submit" id="submit" value="Submit"> &nbsp; <input type="button" class ="btn" name="reload" id="reload" onclick="location.reload()" value="Reload tab"><br>
 
             </form>
         </div>
-        <div class = "col-md-6">
-            <div id="g-holder">
-                <canvas id="mycanvas" width="600" height="600"></canvas>
-            </div>
 
+        <div class = "col-md-6">
+                <canvas id="mycanvas" width="600" height="600"></canvas>
         </div>
     </div>
+    <footer><p>Developed by Kateryna Oliinyk<br>Kyiv National University<br>2015</p></footer>
 </body>
 </html>
