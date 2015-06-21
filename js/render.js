@@ -29,6 +29,7 @@ $(function(){
 
 });
 
+
 function start() {
     step = 0;
     if (window.timer) {
@@ -90,7 +91,7 @@ function draw_canvas() {
      }
     context.stroke();
     context.beginPath();
-    context.strokeStyle = '#009030';
+    context.strokeStyle = '#000000';
 
     coo = mapping( projection([0,0,0], plane[0], plane[1]) );
     context.moveTo(coo.x, coo.y);
@@ -127,7 +128,7 @@ function draw_surface(n) {
     }
     draw_canvas();
 
-    context.strokeStyle = '#0000FF';
+    context.strokeStyle = '#00b300';
 
     for (var i=0; i<=density; i++) {
         coo = mapping( projection([i*delta, 0, z[n][i][0] ], plane[0], plane[1]) );
