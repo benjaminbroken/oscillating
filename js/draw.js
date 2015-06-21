@@ -7,6 +7,7 @@ $(function(){
 });
 
 function start() {
+    step = 0;
     window.timer = setInterval(
         function() {
             draw_line(step);
