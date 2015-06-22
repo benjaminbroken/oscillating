@@ -54,13 +54,11 @@ body h1 {
     position: relative;
     float: left;
     display: table-cell;
-    width: 200pt;
     padding-bottom: 10pt;
     padding-left: 10pt;
-    padding-right: 20pt;
-
+    padding-right: 10pt;
+    width: 200pt;
 }
-
 
 .input-data .double-chooser #speed {
     margin-left: 20pt;
@@ -74,6 +72,10 @@ body h1 {
 
 .input-data .chooser-title {
     padding-left: 20pt;
+}
+
+body #mycanvas{
+    margin-top: 5pt;
 }
 
 body footer {
