@@ -50,7 +50,7 @@ $(document).ready(function () {
 
     $('#submit').click(function(){
         var  T = 200, N = 100;
-        var sigma = 0.2, h = 1/N, tau = 1/T;
+        var sigma = 0.5, h = 1/N, tau = 1/T;
 
         var y = new Array(N+1), F = [], ai = [], bi = [], d = 2 + h*h/(tau*tau*sigma);
 
