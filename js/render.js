@@ -83,7 +83,6 @@ function draw_canvas() {
      for (var i=0; i<=10; i++) {
      context.moveTo(i*$(canvas).width()/10, 0);
      context.lineTo(i*$(canvas).width()/10, $(canvas).height());
-     //		context.strokeText(i, i*$(canvas).width()/10 + 4, $(canvas).height() - 4);
      }
      for (var i=0; i<=10; i++) {
      context.moveTo(0, i*$(canvas).height()/10);
@@ -116,7 +115,7 @@ function draw_canvas() {
 }
 
 /**
- * Draw the n-th element of the array of surfaces, see data-3d.js.
+ * Draw the n-th element of the array of surfaces.
  */
 
 
@@ -137,8 +136,6 @@ function draw_surface(n) {
         for (var j=0; j<=density; j++) {
             coo = mapping( projection([i*delta, j*delta, z[n][i][j] ], plane[0], plane[1]) );
             context.lineTo(coo.x, coo.y);
-//			$('#status').text(i + ' cycle one ' +j);
-//			console.log(coo.x+ ';'+coo.y);
         }
         context.stroke();
     }
@@ -152,8 +149,6 @@ function draw_surface(n) {
                 alert('isNaN(coo.x ' + i + ' ' + j);
             }
             context.lineTo(coo.x, coo.y);
-//			$('#status').text(i + ' cycle two ' +j);
-//			console.log(coo.x+ ';'+coo.y);
         }
         context.stroke();
     }
