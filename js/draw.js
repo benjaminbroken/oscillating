@@ -49,7 +49,7 @@ function draw_canvas() {
 }
 
 /**
- * Draw the n-th element of lines_arr, see array.js.
+ * Draw the n-th element of lines_arr.
  */
 function draw_line(n) {
     var coo, point;
