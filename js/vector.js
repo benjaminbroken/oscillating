@@ -1,7 +1,4 @@
 /**
- * Created by Капитан on 20.06.2015.
- */
-/**
  * distance squared
  */
 function dist2(p1, p2) {
@@ -84,6 +81,4 @@ function projection(y, u, v) {
 }
 
 function unit(v) { return prod(1/norma(v), v); }
-/**
- * Created by Капитан on 19.06.2015.
- */
+
